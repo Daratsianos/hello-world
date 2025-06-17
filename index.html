@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1 {
+            text-align: center;
+        }
+        #todo-form {
+            display: flex;
+            gap: 0.5em;
+            margin-bottom: 1em;
+        }
+        #todo-input {
+            flex: 1;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em;
+            border-bottom: 1px solid #ddd;
+        }
+        button.delete {
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            padding: 0.25em 0.5em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form id="todo-form">
+        <input id="todo-input" type="text" placeholder="Add a new task" required />
+        <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+
+    <script>
+        const form = document.getElementById('todo-form');
+        const input = document.getElementById('todo-input');
+        const list = document.getElementById('todo-list');
+
+        const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        function renderTodos() {
+            list.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const li = document.createElement('li');
+                li.textContent = todo;
+                const delBtn = document.createElement('button');
+                delBtn.textContent = 'Delete';
+                delBtn.className = 'delete';
+                delBtn.addEventListener('click', () => {
+                    todos.splice(index, 1);
+                    saveTodos();
+                    renderTodos();
+                });
+                li.appendChild(delBtn);
+                list.appendChild(li);
+            });
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            todos.push(input.value.trim());
+            input.value = '';
+            saveTodos();
+            renderTodos();
+        });
+
+        renderTodos();
+    </script>
+</body>
+</html>

@@ -1,3 +1,7 @@
-# hello-world
-testing Github
-I like Java and I am trying to start a project on it
+# Todo List App
+
+This repository contains a simple web-based todo list.
+
+## Running
+
+Open `index.html` in your browser to start using the app. Your tasks are stored in your browser's local storage.
