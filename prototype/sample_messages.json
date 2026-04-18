@@ -1,0 +1,8 @@
+[
+  {"sender": "alerts@bank.com", "subject": "Security verification code", "opened": true, "replied": false, "clicked": true, "list_unsubscribe": false},
+  {"sender": "newsletter@shop.com", "subject": "Big weekend sale", "opened": false, "replied": false, "clicked": false, "list_unsubscribe": true},
+  {"sender": "newsletter@shop.com", "subject": "Another sale", "opened": false, "replied": false, "clicked": false, "list_unsubscribe": true},
+  {"sender": "newsletter@shop.com", "subject": "Final reminder", "opened": false, "replied": false, "clicked": false, "list_unsubscribe": true},
+  {"sender": "billing@cloudvendor.com", "subject": "Invoice for April", "opened": true, "replied": false, "clicked": false, "list_unsubscribe": false},
+  {"sender": "updates@social.com", "subject": "New followers", "opened": false, "replied": false, "clicked": false, "list_unsubscribe": true}
+]

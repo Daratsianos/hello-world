@@ -1,0 +1,19 @@
+{
+  "executed_at": "2026-04-18T10:47:56.124305+00:00",
+  "items": [
+    {
+      "sender": "newsletter@shop.com",
+      "domain": "shop.com",
+      "trust_score": 5,
+      "reason": "never opened, high volume with no engagement",
+      "action": "unsubscribe_header"
+    },
+    {
+      "sender": "updates@social.com",
+      "domain": "social.com",
+      "trust_score": 0,
+      "reason": "never opened, similar domain unsubscribed before",
+      "action": "unsubscribe_header"
+    }
+  ]
+}
