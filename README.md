@@ -7,16 +7,32 @@ This project is building an Outlook automation that:
 3. Shows you a batch list first.
 4. Executes unsubscribes only after your explicit command: `OK unsubscribe from all`.
 
-## What I am making now
+## Easiest way to run it
 
-A practical **phase-1 prototype** you can run locally today:
+From the repo root:
 
-- `prototype/unsubscribe_planner.py`
-- Inputs: `sample_messages.json`, `allowlist.txt`, `denylist.txt`
-- Output: trusted/review/candidate report
-- Approval model: batch stays pending unless you pass `--approve-all`
+```bash
+make demo
+```
 
-## Quick start
+This prints:
+- trusted senders
+- review senders
+- candidate unsubscribe batch
+
+To simulate approval (`OK unsubscribe from all` equivalent):
+
+```bash
+make demo-approve
+```
+
+That writes a dry-run execution file to:
+
+- `prototype/executed_batch.json`
+
+## If you don't have make
+
+Preview mode:
 
 ```bash
 python3 prototype/unsubscribe_planner.py \
@@ -25,7 +41,7 @@ python3 prototype/unsubscribe_planner.py \
   --denylist prototype/denylist.txt
 ```
 
-Approve and execute the current batch:
+Approve + execute:
 
 ```bash
 python3 prototype/unsubscribe_planner.py \
@@ -34,6 +50,15 @@ python3 prototype/unsubscribe_planner.py \
   --denylist prototype/denylist.txt \
   --approve-all
 ```
+
+## What I am making now
+
+A practical **phase-1 prototype** you can run locally today:
+
+- `prototype/unsubscribe_planner.py`
+- Inputs: `sample_messages.json`, `allowlist.txt`, `denylist.txt`
+- Output: trusted/review/candidate report
+- Approval model: batch stays pending unless you pass `--approve-all`
 
 ## Next implementation plan
 
